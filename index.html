@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>服务与报价 · MIX饰界智变</title>
+<meta name="description" content="MIX饰界智变：让 AI 说到你、说对你、先推荐你。板材及上下游企业的 AI 可见度（GEO）代运营服务。">
+<style>
+/* 服务与报价（CLAUDE · 2026-11-20）：对外页面，离线可用，不加载任何外部资源 */
+:root { --gold: #b07d2b; --gold-600: #946821; --gold-500: #c49544; --gold-100: #f6ecd9; --gold-50: #fbf6ec; --ink: #1d2126; --ink-2: #4a5059; --ink-3: #7b828c; --line: #e6e8eb; --bg: #f7f7f5; --good: #2f8a4c; --bad: #c0392b;
+  --font: "PingFang SC", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans SC", "Source Han Sans SC", system-ui, sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.7 var(--font); -webkit-font-smoothing: antialiased; }
+.num { font-variant-numeric: tabular-nums; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+header.top { background: #fff; border-bottom: 1px solid var(--line); }
+header.top .wrap { display: flex; align-items: center; gap: 12px; height: 64px; }
+.logo { width: 34px; height: 34px; border-radius: 9px; background: var(--ink); color: var(--gold-500); display: grid; place-items: center; font-weight: 700; font-size: 12px; letter-spacing: .5px; }
+.top b { font-size: 16px; }
+.top small { color: var(--ink-3); font-size: 12px; display: block; line-height: 1.3; }
+.top nav { margin-left: auto; display: flex; gap: 22px; font-size: 14px; }
+.top nav a { color: var(--ink-2); text-decoration: none; }
+.top nav a:hover { color: var(--gold-600); }
+.hero { background: #fff; padding: 64px 0 56px; border-bottom: 1px solid var(--line); }
+.hero .eyebrow { color: var(--gold-600); font-weight: 600; letter-spacing: 2px; font-size: 13px; }
+.hero h1 { font-size: 44px; line-height: 1.25; margin: 10px 0 16px; letter-spacing: .5px; font-weight: 700; }
+.hero h1 em { font-style: normal; color: var(--gold); }
+.hero p.lead { font-size: 18px; color: var(--ink-2); max-width: 760px; margin: 0; }
+.hero .who { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.tag { display: inline-block; padding: 3px 12px; border-radius: 99px; background: var(--gold-50); border: 1px solid var(--gold-100); color: var(--gold-600); font-size: 13px; }
+.cta { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 10px; font-size: 15px; text-decoration: none; border: 1px solid var(--line); color: var(--ink); background: #fff; cursor: pointer; font-family: inherit; }
+.btn.pri { background: var(--ink); color: #fff; border-color: var(--ink); }
+.btn:hover { border-color: var(--gold-500); }
+section { padding: 56px 0; }
+section h2 { font-size: 28px; margin: 0 0 6px; }
+section .sub { color: var(--ink-3); margin: 0 0 28px; }
+.stages { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.stage { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 20px 20px 18px; position: relative; }
+.stage .no { font-size: 12px; color: var(--ink-3); letter-spacing: 1px; }
+.stage h3 { font-size: 24px; margin: 2px 0 6px; }
+.stage h3 small { font-size: 14px; color: var(--gold-600); font-weight: 600; margin-left: 6px; }
+.stage p { color: var(--ink-2); font-size: 14px; margin: 0 0 12px; }
+.stage h4 { font-size: 12px; color: var(--ink-3); margin: 12px 0 4px; letter-spacing: 1px; font-weight: 600; }
+.stage ul { margin: 0; padding-left: 18px; font-size: 14px; }
+.stage li { margin: 3px 0; }
+.stage::after { content: "→"; position: absolute; right: -13px; top: 26px; color: var(--gold-500); font-weight: 700; }
+.stage:last-child::after { content: "↺"; right: 14px; top: 16px; }
+.plans { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.plan { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 26px 28px; display: flex; flex-direction: column; }
+.plan.feat { border: 2px solid var(--gold); }
+.plan .name { display: flex; align-items: baseline; gap: 10px; }
+.plan .name h3 { font-size: 24px; margin: 0; }
+.plan .name span { font-size: 13px; color: var(--ink-3); }
+.price { display: flex; gap: 28px; margin: 18px 0 6px; flex-wrap: wrap; }
+.price div { display: flex; flex-direction: column; }
+.price small { color: var(--ink-3); font-size: 13px; }
+.price b { font-size: 34px; font-weight: 700; letter-spacing: -.5px; line-height: 1.2; }
+.price b i { font-style: normal; font-size: 16px; font-weight: 500; color: var(--ink-3); margin-left: 3px; }
+.plan .seat { display: inline-block; margin: 6px 0 14px; font-size: 13px; color: var(--gold-600); background: var(--gold-50); border-radius: 6px; padding: 2px 10px; align-self: flex-start; }
+.spec { width: 100%; border-collapse: collapse; font-size: 14px; }
+.spec td { padding: 8px 0; border-bottom: 1px solid #f0f1f2; vertical-align: top; }
+.spec td:first-child { color: var(--ink-3); width: 112px; }
+.both { margin-top: 18px; background: var(--ink); color: #f1ead9; border-radius: 14px; padding: 18px 24px; display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+.both b { color: var(--gold-500); }
+.rule { margin-top: 14px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.box { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 18px 22px; }
+.box h3 { margin: 0 0 6px; font-size: 17px; }
+.box p { margin: 0; color: var(--ink-2); font-size: 14px; }
+.calc { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 26px 28px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 28px; }
+.calc label { display: block; font-size: 13px; color: var(--ink-3); margin: 0 0 6px; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 10px; padding: 3px; gap: 3px; background: #fafafa; }
+.seg button { border: 0; background: none; padding: 7px 18px; border-radius: 8px; cursor: pointer; font: inherit; color: var(--ink-2); }
+.seg button.on { background: var(--ink); color: #fff; }
+.stepper { display: inline-flex; align-items: center; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.stepper button { width: 40px; height: 40px; border: 0; background: #fafafa; font-size: 18px; cursor: pointer; color: var(--ink); }
+.stepper button:disabled { color: #c9ccd1; cursor: not-allowed; }
+.stepper input { width: 64px; height: 40px; border: 0; text-align: center; font: 600 17px var(--font); color: var(--ink); }
+.calc .note { font-size: 13px; color: var(--ink-3); margin: 14px 0 0; }
+.out { background: var(--gold-50); border: 1px solid var(--gold-100); border-radius: 12px; padding: 18px 22px; }
+.out .row { display: flex; justify-content: space-between; align-items: baseline; padding: 6px 0; border-bottom: 1px dashed #e8dcc3; }
+.out .row:last-of-type { border-bottom: 0; }
+.out .row span { color: var(--ink-2); font-size: 14px; }
+.out .row b { font-size: 26px; }
+.out .row b.sm { font-size: 18px; }
+.out .formula { font-size: 13px; color: var(--ink-3); margin-top: 8px; }
+.out .work { font-size: 13px; color: var(--ink-2); margin-top: 10px; border-top: 1px solid #e8dcc3; padding-top: 10px; }
+.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.list { list-style: none; margin: 0; padding: 0; }
+.list li { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid #f0f1f2; align-items: flex-start; }
+.list li:last-child { border-bottom: 0; }
+.mk { width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; flex: none; font-weight: 700; font-size: 13px; margin-top: 1px; }
+.mk.no { background: #fbeaea; color: var(--bad); }
+.mk.yes { background: #e8f4ec; color: var(--good); }
+.list b { display: block; }
+.list span { color: var(--ink-2); font-size: 14px; }
+footer { background: #fff; border-top: 1px solid var(--line); padding: 34px 0 40px; font-size: 14px; color: var(--ink-2); }
+footer .wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 24px; }
+footer h4 { margin: 0 0 8px; color: var(--ink); font-size: 15px; }
+.ph { display: inline-block; background: #f3f4f6; border: 1px dashed #c9ccd1; border-radius: 6px; padding: 0 8px; color: var(--ink-3); font-size: 13px; }
+@media (max-width: 900px) {
+  .stages { grid-template-columns: repeat(2, minmax(0, 1fr)); } .stage::after { display: none; }
+  .plans, .rule, .calc, .two, footer .wrap { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 32px; } .top nav { display: none; }
+}
+@media (max-width: 560px) { .stages { grid-template-columns: 1fr; } .wrap { padding: 0 16px; } .price b { font-size: 28px; } }
+@media print { .cta, .top nav { display: none; } body { background: #fff; } section { padding: 26px 0; } .stage, .plan, .box, .calc { break-inside: avoid; } }
+@media(max-width:600px){.out .row b{font-size:23px;white-space:nowrap}.out .row>span{min-width:62px;font-size:13px}}</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "name": "MIX饰界智变（高维饰界科技（北京）有限公司）"}, {"@type": "Service", "name": "区域版", "description": "{\"name\": \"区域版\", \"first\": 6000, \"month\": 2000, \"questions\": 40, \"platforms\": [\"豆包\", \"元宝\", \"千问\", \"DeepSeek\"], \"rounds\": 3, \"cities\": [1, 1], \"competitors\": 2, \"content_first\": 4, \"content_month\": 4, \"frequency\": \"每月复测加复盘\", \"slots\": 5}", "provider": {"@type": "Organization", "name": "MIX饰界智变（高维饰界科技（北京）有限公司）"}, "offers": [{"@type": "Offer", "name": "首月", "priceCurrency": "CNY", "priceSpecification": {"@type": "PriceSpecification", "price": 6000, "priceCurrency": "CNY", "valueAddedTaxIncluded": true}}, {"@type": "Offer", "name": "之后每月", "priceCurrency": "CNY", "priceSpecification": {"@type": "PriceSpecification", "price": 2000, "priceCurrency": "CNY", "valueAddedTaxIncluded": true}}]}, {"@type": "Service", "name": "全国版", "description": "{\"name\": \"全国版\", \"first\": 25000, \"month\": 8000, \"questions\": 120, \"platforms\": [\"豆包\", \"元宝\", \"千问\", \"DeepSeek\"], \"rounds\": 3, \"cities\": [10, 20], \"competitors\": 5, \"content_first\": 20, \"content_month\": 10, \"frequency\": \"每周监测，每月复盘\", \"slots\": 1}", "provider": {"@type": "Organization", "name": "MIX饰界智变（高维饰界科技（北京）有限公司）"}, "offers": [{"@type": "Offer", "name": "首月", "priceCurrency": "CNY", "priceSpecification": {"@type": "PriceSpecification", "price": 25000, "priceCurrency": "CNY", "valueAddedTaxIncluded": true}}, {"@type": "Offer", "name": "之后每月", "priceCurrency": "CNY", "priceSpecification": {"@type": "PriceSpecification", "price": 8000, "priceCurrency": "CNY", "valueAddedTaxIncluded": true}}]}]}</script><link rel="canonical" href="https://mix-shijie.github.io/geo-service/"></head>
+<body>
+<header class="top"><div class="wrap"><div class="logo">MIX</div><div><b>MIX饰界智变</b><small>高维饰界科技（北京）有限公司</small></div>
+  <nav><a href="#how">怎么做</a><a href="#plans">两个版本</a><a href="#calc">报价计算</a><a href="#principles">原则</a><a href="#contact">联系</a></nav></div></header>
+
+<div class="hero"><div class="wrap">
+  <div class="eyebrow">AI 可见度代运营（GEO）· 板材及上下游企业</div>
+  <h1>让 AI <em>说到你</em>、<em>说对你</em>、<em>先推荐你</em>。</h1>
+  <p class="lead">你的客户已经在问豆包、元宝、千问、DeepSeek：用什么板、找谁买、哪家靠谱。MIX 帮你看清 AI 现在怎么说你，把说错的改对，把该有的内容铺到 AI 会读的地方，再每月复测，用数据说话。</p>
+  <div class="who"><span class="tag">板材厂</span><span class="tag">刨花板 / 生态板厂</span><span class="tag">压贴厂</span><span class="tag">品牌运营商</span><span class="tag">经销商、中型厂</span></div>
+  <div class="cta"><a class="btn" href="#calc">算一下报价</a> <button class="btn pri" onclick="document.getElementById('exam').showModal()">免费做一次 AI 体检</button></div>
+</div></div>
+
+<section id="how"><div class="wrap">
+  <h2>四段工作：看清、说对、铺开、复测</h2>
+  <p class="sub">每一段做什么、交付什么，都写在这里。</p>
+  <div class="stages">
+    <div class="stage"><div class="no">第一段</div><h3>看清<small>AI 现在怎么说你</small></h3>
+      <p>用客户真实会问的问题，在四个 AI 上各问三轮，把回答和引用的来源全部存档。</p>
+      <h4>交付</h4><ul><li>问题库：按提问人身份和决策点归类</li><li>基线报告：可见度、首推率、平均排位、声量份额、情感、被引来源</li><li>竞品对比、信源构成、城市推荐名单</li></ul></div>
+    <div class="stage"><div class="no">第二段</div><h3>说对<small>把说错的改对</small></h3>
+      <p>建企业事实卡，把 AI 回答里涉及你的说法逐条对照：正确、过时、错误、没提到。再按缺口写内容。</p>
+      <h4>交付</h4><ul><li>企业事实卡、说错告警、名称统一建议</li><li>每月内容（篇数见版本），每篇附 EEAT 核对：具名作者、一手数据、可核对的出处</li><li>AI 辅助写作，发布前人工核实</li></ul></div>
+    <div class="stage"><div class="no">第三段</div><h3>铺开<small>发到 AI 会读的地方</small></h3>
+      <p>每个 AI 偏爱的信息入口不一样。同一篇内容，按平台分发到对应的渠道。</p>
+      <h4>交付</h4><ul><li>发布排期和记录：发在哪、哪天发、链接</li><li>门店地图信息校准（有本地生意的）</li><li>人工发布，不自动发帖</li></ul></div>
+    <div class="stage"><div class="no">第四段</div><h3>复测<small>用数据说话</small></h3>
+      <p>按同一套问题重测，和上次比、和基线比，看哪些变化可能和哪次内容动作有关。</p>
+      <h4>交付</h4><ul><li>复盘报告（可导出 PDF）</li><li>归因说明：可信度高、中、低，并写明其他可能原因</li><li>下一步行动清单</li></ul></div>
+  </div>
+</div></section>
+
+<section id="plans" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
+  <h2>两个版本</h2>
+  <p class="sub">基础款 = 一个商号，加这个商号下一个品牌的全部产品。</p>
+  <div class="plans">
+    <div class="plan">
+      <div class="name"><h3>区域版</h3><span>做一座城市的生意</span></div>
+      <div class="price"><div><small>首月（诊断 + 搭建）</small><b class="num">6,000<i>元（含税）</i></b></div><div><small>之后每月（运维）</small><b class="num">2,000<i>元（含税）</i></b></div></div>
+      <span class="seat">首批 5 家</span>
+      <table class="spec">
+        <tr><td>问题</td><td>40 个问题 × 4 个平台 × 每题 3 轮</td></tr>
+        <tr><td>城市</td><td>1 座</td></tr>
+        <tr><td>竞品</td><td>2 家</td></tr>
+        <tr><td>内容</td><td>每月 4 篇</td></tr>
+        <tr><td>检测</td><td>每月复测，加复盘</td></tr>
+        <tr><td>平台</td><td>豆包、元宝、千问、DeepSeek</td></tr>
+      </table>
+    </div>
+    <div class="plan feat">
+      <div class="name"><h3>全国版</h3><span>做多个区域、做品牌</span></div>
+      <div class="price"><div><small>首月（诊断 + 搭建）</small><b class="num">25,000<i>元（含税）</i></b></div><div><small>之后每月（运维）</small><b class="num">8,000<i>元（含税）</i></b></div></div>
+      <span class="seat">首批 1 家</span>
+      <table class="spec">
+        <tr><td>问题</td><td>120 个问题 × 4 个平台 × 每题 3 轮</td></tr>
+        <tr><td>城市</td><td>抽样 10—20 座核心城市</td></tr>
+        <tr><td>竞品</td><td>5 家</td></tr>
+        <tr><td>内容</td><td>首月 20 篇，之后每月 10 篇</td></tr>
+        <tr><td>检测</td><td>每周监测一次，每月复盘</td></tr>
+        <tr><td>平台</td><td>豆包、元宝、千问、DeepSeek</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="both"><span>两个版本都一样：</span><b>每次检测都配复盘报告、归因说明和行动清单。</b></div>
+  <div class="rule">
+    <div class="box"><h3>多一个品牌，加 50%</h3><p>同一商号每多一个品牌，首月和月费都在基础价上加 50%，对应的检测和内容工作量也翻一倍。</p></div>
+    <div class="box"><h3>首批名额</h3><p>全国版 1 家，区域版 5 家。</p></div>
+  </div>
+</div></section>
+
+<section id="calc"><div class="wrap">
+  <h2>报价计算</h2>
+  <p class="sub">选版本、填品牌数，自动算出首月和月费。</p>
+  <div class="calc">
+    <div>
+      <label>版本</label>
+      <div class="seg" id="plan"><button data-p="region" class="on">区域版</button><button data-p="national">全国版</button></div>
+      <label style="margin-top:20px">同一商号下的品牌数</label>
+      <div class="stepper"><button id="minus" aria-label="减少">−</button><input id="n" type="number" min="1" max="10" value="1" inputmode="numeric" aria-label="品牌数"><button id="plus" aria-label="增加">+</button></div>
+      <p class="note">第 1 个品牌是基础款；从第 2 个品牌起，每个加基础价的 50%。</p>
+    </div>
+    <div class="out" aria-live="polite">
+      <div class="row"><span>首月</span><b class="num" id="o1">6,000 元</b></div>
+      <div class="row"><span>之后每月</span><b class="num" id="o2">2,000 元</b></div>
+<div class="formula" id="of">基础价 × (1 + 50% × 0)</div>
+      <div class="work" id="ow"></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="principles" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
+  <div class="two">
+    <div><h2>我们不做的事</h2><p class="sub">做了短期可能有用，长期一定伤品牌。</p>
+      <ul class="list">
+        <li><span class="mk no">✕</span><div><b>不刷量</b><span>不批量灌水、不用账号矩阵堆内容。</span></div></li>
+        <li><span class="mk no">✕</span><div><b>不编评价</b><span>不编造用户评价、案例和数据。</span></div></li>
+        <li><span class="mk no">✕</span><div><b>不承诺排名</b><span>AI 怎么回答由平台决定。我们承诺的是工作量、方法和如实的数据。</span></div></li>
+        <li><span class="mk no">✕</span><div><b>不用提示注入污染 AI</b><span>不在网页里藏给 AI 看的指令，不做任何污染语料的事。</span></div></li>
+      </ul></div>
+    <div><h2>我们如实标注的事</h2><p class="sub">报告里每一个数字，都能说清楚是怎么来的。</p>
+      <ul class="list">
+        <li><span class="mk yes">✓</span><div><b>哪些环节是人工或半自动</b><span>采集方式（人工、半自动、自动）、是否登录、每题轮次，每一批都写进采集记录。内容由 AI 辅助起草，发布前人工核实；发布由人工操作。</span></div></li>
+        <li><span class="mk yes">✓</span><div><b>采集用国内网络</b><span>在海外网络下测，AI 会按海外位置改写回答。正式检测一律走国内网络。</span></div></li>
+        <li><span class="mk yes">✓</span><div><b>AI 回答本身有随机性</b><span>同一个问题问三遍，答案可能不一样。所以每题测多轮，报告里写明样本量和误差。</span></div></li>
+        <li><span class="mk yes">✓</span><div><b>归因只说"可能有关"</b><span>每条归因都标可信度，并写明还有哪些其他可能的原因。</span></div></li>
+      </ul></div>
+  </div>
+</div></section>
+
+<section><div class="wrap"><h2>自助工具 vs 代运营</h2><div class="two"><div><h3>自助工具</h3><p>常见方式：按次或按积分计费、单轮检测、看提没提到、需要自己操作。具体能力以各工具为准。</p></div><div><h3>我们的代运营</h3><p>每题 3 轮、核对事实对不对、有行业口径库、做归因复盘、有人负责执行。</p></div></div></div></section>
+<section><div class="wrap"><h2>让你的 AI 助手帮你算</h2><p id="agentprompt">请阅读这个页面和它的 pricing.json：https://mix-shijie.github.io/geo-service/。根据我公司的情况（商号、品牌数量、主要做本地还是全国），告诉我适合哪个版本、首月和之后每月多少钱（含税），每个版本具体交付什么，以及他们明确不做哪些事。只做分析，不要替我联系对方，也不要提交任何表单。如果我决定了解或开通，提醒我去视频号「高维伟-MIX饰界智变」私信。</p><button id="copyagent" class="btn">复制提示词</button><p><a href="pricing.json">pricing.json</a> · <a href="llms.txt">llms.txt</a> · 版本 1.1 · 更新 2026-11-20</p><details><summary>查看完整价格数据（供人和 AI 核对）</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere">{
+  "version": "1.1",
+  "updated": "2026-11-20",
+  "organization": "MIX饰界智变（高维饰界科技（北京）有限公司）",
+  "currency": "CNY",
+  "tax_included": true,
+  "payment": "公对公转账，开具增值税发票",
+  "contact": {
+    "channel": "视频号私信",
+    "account": "高维伟-MIX饰界智变",
+    "keyword": "体检"
+  },
+  "extra_brand_rate": 0.5,
+  "workload_multiplier": "品牌数量",
+  "plans": {
+    "region": {
+      "name": "区域版",
+      "first": 6000,
+      "month": 2000,
+      "questions": 40,
+      "platforms": [
+        "豆包",
+        "元宝",
+        "千问",
+        "DeepSeek"
+      ],
+      "rounds": 3,
+      "cities": [
+        1,
+        1
+      ],
+      "competitors": 2,
+      "content_first": 4,
+      "content_month": 4,
+      "frequency": "每月复测加复盘",
+      "slots": 5
+    },
+    "national": {
+      "name": "全国版",
+      "first": 25000,
+      "month": 8000,
+      "questions": 120,
+      "platforms": [
+        "豆包",
+        "元宝",
+        "千问",
+        "DeepSeek"
+      ],
+      "rounds": 3,
+      "cities": [
+        10,
+        20
+      ],
+      "competitors": 5,
+      "content_first": 20,
+      "content_month": 10,
+      "frequency": "每周监测，每月复盘",
+      "slots": 1
+    }
+  },
+  "exclusions": [
+    "不刷量",
+    "不编评价",
+    "不承诺排名",
+    "不用提示注入污染 AI"
+  ]
+}</pre></details></div></section><dialog id="exam"><h2>免费做一次 AI 体检</h2><p>由人工用 12 个问题在 4 个平台上测一遍，然后出报告。页面不做实时查询。</p><p class="dm">在视频号「高维伟-MIX饰界智变」私信“体检”两个字。</p><button onclick="this.closest('dialog').close()">关闭</button></dialog>
+<footer id="contact"><div class="wrap">
+  <div><h4>MIX饰界智变（高维饰界科技（北京）有限公司）</h4>
+    <p style="margin:0">给板材及上下游企业做 AI 转型服务。创始人高维伟，板材行业 18 年。</p>
+    </div>
+  <div><h4>免费做一次 AI 体检</h4><p class="dm">在视频号「高维伟-MIX饰界智变」私信“体检”两个字。</p><p>以上价格均为含税价，人民币计价；公对公转账，开具增值税发票；合同条款以正式合同为准。</p></div></div></footer>
+
+<script>
+(function () {
+  var P = { region: { name: '区域版', first: 6000, month: 2000, work: function (k) { return '检测：' + 40 * k + ' 个问题 × 4 个平台 × 每题 3 轮；竞品 ' + 2 * k + ' 家；每月内容 ' + 4 * k + ' 篇；每月复测加复盘。'; } },
+            national: { name: '全国版', first: 25000, month: 8000, work: function (k) { return '检测：' + 120 * k + ' 个问题 × 4 个平台 × 每题 3 轮；竞品 ' + 5 * k + ' 家；首月内容 ' + 20 * k + ' 篇，之后每月 ' + 10 * k + ' 篇；每周监测，每月复盘。'; } } };
+  var plan = 'region';
+  var n = document.getElementById('n');
+  var fmt = function (x) { return Math.round(x).toLocaleString('zh-CN') + ' 元（含税）'; };
+  function clamp() { var v = parseInt(n.value, 10); if (isNaN(v) || v < 1) v = 1; if (v > 10) v = 10; n.value = v; return v; }
+  function calc() {
+    var k = clamp(), p = P[plan], m = 1 + 0.5 * (k - 1);
+    document.getElementById('o1').textContent = fmt(p.first * m);
+    document.getElementById('o2').textContent = fmt(p.month * m);
+    document.getElementById('of').textContent = p.name + '：首月 ' + p.first.toLocaleString('zh-CN') + ' 元、月费 ' + p.month.toLocaleString('zh-CN') + ' 元 × (1 + 50% × ' + (k - 1) + ') = × ' + m.toFixed(1);
+    document.getElementById('ow').textContent = (k > 1 ? k + ' 个品牌，检测和内容工作量是基础款的 ' + k + ' 倍。' : '1 个品牌（基础款）。') + p.work(k);
+    document.getElementById('minus').disabled = k <= 1; document.getElementById('plus').disabled = k >= 10;
+  }
+  document.getElementById('plan').addEventListener('click', function (e) { var b = e.target.closest('button'); if (!b) return; plan = b.getAttribute('data-p'); [].forEach.call(this.querySelectorAll('button'), function (x) { x.classList.toggle('on', x === b); }); calc(); });
+  document.getElementById('minus').addEventListener('click', function () { n.value = clamp() - 1; calc(); });
+  document.getElementById('plus').addEventListener('click', function () { n.value = clamp() + 1; calc(); });
+  n.addEventListener('input', calc);
+  calc();
+})();
+</script>
+<script src="CODEX_pricing.js"></script></body>
+</html>

@@ -1,0 +1,67 @@
+{
+  "version": "1.1",
+  "updated": "2026-11-20",
+  "organization": "MIX饰界智变（高维饰界科技（北京）有限公司）",
+  "currency": "CNY",
+  "tax_included": true,
+  "payment": "公对公转账，开具增值税发票",
+  "contact": {
+    "channel": "视频号私信",
+    "account": "高维伟-MIX饰界智变",
+    "keyword": "体检"
+  },
+  "extra_brand_rate": 0.5,
+  "workload_multiplier": "品牌数量",
+  "plans": {
+    "region": {
+      "name": "区域版",
+      "first": 6000,
+      "month": 2000,
+      "questions": 40,
+      "platforms": [
+        "豆包",
+        "元宝",
+        "千问",
+        "DeepSeek"
+      ],
+      "rounds": 3,
+      "cities": [
+        1,
+        1
+      ],
+      "competitors": 2,
+      "content_first": 4,
+      "content_month": 4,
+      "frequency": "每月复测加复盘",
+      "slots": 5
+    },
+    "national": {
+      "name": "全国版",
+      "first": 25000,
+      "month": 8000,
+      "questions": 120,
+      "platforms": [
+        "豆包",
+        "元宝",
+        "千问",
+        "DeepSeek"
+      ],
+      "rounds": 3,
+      "cities": [
+        10,
+        20
+      ],
+      "competitors": 5,
+      "content_first": 20,
+      "content_month": 10,
+      "frequency": "每周监测，每月复盘",
+      "slots": 1
+    }
+  },
+  "exclusions": [
+    "不刷量",
+    "不编评价",
+    "不承诺排名",
+    "不用提示注入污染 AI"
+  ]
+}
